@@ -1,8 +1,8 @@
-# thecacklingcrow
-The Cackling Crow blog website repository.
+# scentwitch
+The Scent Witch blog website repository. This repo was cloned from [another repo](https://github.com/abitwitch/thecacklingcrow/), some refrences to "the cackleing crow" still exist in the documentation. 
 
 # How it works
-This repo is used for hosting the [thecacklingcrow.com](https://thecacklingcrow.com/), and also outlines the process of hosting a website for free using GitHub for hosting, WordPress for managing the website content, and a Raspberry Pi for hosting a local editable version of the website. 
+This repo is used for hosting the [scentwitch.blog](https://scentwitch.blog/), and also outlines the process of hosting a website for free using GitHub for hosting, WordPress for managing the website content, and a Raspberry Pi for hosting a local editable version of the website. 
 
 ## Structure
 The diagram below shows how the different part of this project interact with eachother.
