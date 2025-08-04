@@ -12,7 +12,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     sudo rm -r /var/www/html/crow.local-static/
     #Create static version of site
     cd /var/www/html
-    yes | sudo ./wpstatic -a
+    yes | sudo ./wpstatic
     cd -
     #Copy static site to git repo
     sudo cp /var/www/html/crow.local-static/* . -r
@@ -20,7 +20,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     gitdiff=$(sudo -u crow git diff --ignore-all-space -I"secret=.*\"")
     if [ "$gitdiff" != "" ]; then
         #Update lastrun
-        date +%s > ./lastrun
+        sudo date +%s > ./lastrun
         #Git commit and push
         sudo -u crow git add -A
         sudo -u crow git commit -m "`date`"
