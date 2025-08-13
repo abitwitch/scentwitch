@@ -32,7 +32,6 @@ if [ "$curdir" = "$gitreponame" ]; then
         echo "No changes since last run."
       fi
     fi
-    echo "sleeping for a minute..."
     sleep 60
   done
 else

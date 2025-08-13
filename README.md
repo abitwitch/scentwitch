@@ -158,7 +158,7 @@ To get your website up and running, follow the steps in the ordered sections bel
 ## Set up a Cron job on the Raspberry Pi
 1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
 1. `sudo crontab -e` (you may have you pick a default text editor, I recommend Nano for beginners)
-2. add this line `0 0 * * * /usr/bin/bash /home/crow/thecacklingcrow/update.sh` (this will mean the Raspberry Pi will apply any changes you've made to your site locally to the open web at Midnight every night)
+2. add this line `@reboot bash /home/witch/scentwitch/website-updater.sh` (this will mean the Raspberry Pi will check every minute for a new static deployment then push the new version to github)
 
 # Use
 After you've followed the [Installation](#installation) instructions, you can access your WordPress website through a browser that's connected to the same network as the Raspberry Pi. You can make any changes to your website you'd like using the regular WordPress interface.
