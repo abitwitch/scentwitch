@@ -104,7 +104,7 @@ To get your website up and running, follow the steps in the ordered sections bel
     3. pass: {wp pass} (pick a Wordpress password)
     4. email: {associated email} (enter your existing email address)
 4. Login and go to Settings > Permlinks
-    1. Set to "Plain" and save
+    1. Set to "Custom Structure", enter "/index.php/%postname%/" then save
 5. Go to Settings > Discussion 
    1. Uncheck the option that says “Allow people to post comments on new articles" (see [Limitations](#limitations))
 
