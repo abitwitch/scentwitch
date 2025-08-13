@@ -18,7 +18,6 @@ if [ "$curdir" = "$gitreponame" ]; then
       rm -rf $git_static_dir/*
       cp $static_dir/index.html $git_static_dir/index.html.gz
       gzip -d $git_static_dir/index.html.gz
-      mv $git_static_dir/index.html.gz $git_static_dir/index.html
       sudo -u witch git pull
       gitdiff=$(sudo -u witch git diff --ignore-all-space -I"secret=.*\"")
       if [ "$gitdiff" != "" ]; then
