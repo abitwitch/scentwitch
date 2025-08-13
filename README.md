@@ -132,9 +132,10 @@ To get your website up and running, follow the steps in the ordered sections bel
 2. Goto the Repo page > Settings (along the top) > Pages (along the side)
 3. Under `Build and deployment` Set `Source` to `GitHub Actions`
 4. Select `Static HTML By GitHub Actions` as your Workflow
-5. Accept the defaults and Commit the changes to your main branch
-6. Go back to the Repo page > Settings (along the top) > Pages (along the side)
-7. Enter and `Custom domain` if you have one. Follow the linked instuctions there. You will have to configure it with your Domnain name provider as well. 
+5. In the `.github/workflows/static.yml` file, under `jobs > deploy > steps > with`, update the path to `path: './public_static'`
+6. Commit the changes to your main branch
+7. Go back to the Repo page > Settings (along the top) > Pages (along the side)
+8. Enter and `Custom domain` if you have one. Follow the linked instuctions there. You will have to configure it with your Domnain name provider as well. 
 
 ## Setup Git syncing on the Raspberry Pi
 1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
