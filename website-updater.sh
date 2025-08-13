@@ -16,7 +16,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     if (( static_dir_last_update > git_static_dir_last_update)); then
       echo "Updateing git static folder"
       rm -rf $git_static_dir/*
-      mv $static_dir/index.html $git_static_dir/index.html.gz
+      cp $static_dir/index.html $git_static_dir/index.html.gz
       gzip -d $git_static_dir/index.html.gz
       mv $git_static_dir/index.html.gz $git_static_dir/index.html
       sudo -u witch git pull
