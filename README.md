@@ -122,6 +122,9 @@ To get your website up and running, follow the steps in the ordered sections bel
 2. `sudo mkdir /var/www/html/public_static`
 3. Goto local address (http://crow.local/wp-login.php) in your browser then login.
 4. Under "Plugins" add and activate "Staatic" plugin 
+5. Set the 404 page
+   1. In wordpress, make a page called "404_not_found"
+   2. Under `Staatic` > `Settings` > `Advanced`, Set the "Page Not Found Path" to `/index.php/404_not_found/` (if the path is different for any reason, you'll need to update the `website-updater.sh` script too)
 
 ## Set-up GitHub Repo
 1. Sign up for a GitHub account if needed and create a new repository for your website. The Repo must be "Public"
