@@ -15,8 +15,8 @@ if [ "$curdir" = "$gitreponame" ]; then
     git_static_dir_last_update=$(find $git_static_dir -type f -printf '%Ts\n' | sort -k1,1nr | head -1)
     if (( static_dir_last_update > git_static_dir_last_update)); then
       echo "Updateing git static folder"
-      rm -rf $git_static_dir/*
-      cp $static_dir/index.html $git_static_dir/index.html.gz
+      rsync -avu --delete $static_dir $git_static_dir
+      mv $git_static_dir/index.html $git_static_dir/index.html.gz
       gzip -d $git_static_dir/index.html.gz
       sudo -u witch git pull
       gitdiff=$(sudo -u witch git diff --ignore-all-space -I"secret=.*\"")
