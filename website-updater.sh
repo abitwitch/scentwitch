@@ -17,7 +17,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     if (( static_dir_last_update > git_static_dir_last_update)); then
       echo "Updateing git static folder"
       rsync -avu --delete $static_dir/ $git_static_dir
-      #copy over 404 if exists
+      #copy over 404 page if exists
       [[ -e $git_static_dir/404_not_found/index.html ]] && cp $git_static_dir/404_not_found/index.html $git_static_dir/404.html
       sudo -u witch git pull
       gitdiff=$(sudo -u witch git diff --ignore-all-space -I"secret=.*\"")

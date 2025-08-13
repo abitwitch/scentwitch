@@ -37,10 +37,6 @@ graph TB
 - Since it relies on free hosting from GitHub, there is no support and no guaruntee the service will remain availible
 - GitHub will store your website history (anyone will be able to see if they find your public repo)
 
-# Use
-After you've followed the [Installation](#installation) instructions, you can access your WordPress website through a browser that's connected to the same network as the Raspberry Pi. You can make any changes to your website you'd like using the regular WordPress interface. Once you've saved your changes, your live website will automatically be updated the same day (at midnight).
-
-
 # Installation
 To get your website up and running, follow the steps in the ordered sections below:
 1. [Setup the Raspberry Pi](#setup-the-aspberry-pi)
@@ -67,18 +63,18 @@ To get your website up and running, follow the steps in the ordered sections bel
    2. `ssh crow.local -l crow`
    3. You may have to say Yes to add the key as a known ssh host
    4. Enter your password from the section [Setup the Raspberry Pi](#setup-the-aspberry-pi)
-2. `sudo apt-get install apache2 -y`
-3. `sudo apt-get install php -y`
-4. `sudo apt-get install mariadb-server php-mysql -y`
+2. `sudo apt-get upgrade`
+3. `sudo apt-get update`
+4. `sudo apt-get install apache2 php mariadb-server php-mysql php-dom -y`
 5. `sudo service apache2 restart`
 6. `cd /var/www/html/`
 7. `sudo rm *`
 8. `sudo wget https://wordpress.org/latest.tar.gz`
-9.  `sudo tar xzf latest.tar.gz`
-10.  `sudo mv wordpress/* .`
-11.  `sudo rm -rf wordpress latest.tar.gz`
-12.  `sudo chown -R www-data: .`
-13.  `sudo mysql_secure_installation`
+9. `sudo tar xzf latest.tar.gz`
+10. `sudo mv wordpress/* .`
+11. `sudo rm -rf wordpress latest.tar.gz`
+12. `sudo chown -R www-data: .`
+13. `sudo mysql_secure_installation`
    1. Enter system root password
    2. `Switch to unix_socket authentication [Y/n] Y`
    3. `Change the root password? [Y/n] Y`
@@ -123,9 +119,9 @@ To get your website up and running, follow the steps in the ordered sections bel
 
 ## Set-up ability to make a static copy of Wordpress to the Raspberry Pi Server
 1. SSH into the Raspberry Pi (see step 1 of the section "Install Wordpress on the Raspberry Pi" for more details)
-2. `cd /var/www/html`
-3. `wget https://raw.githubusercontent.com/chnm/WP-Static/master/wpstatic`
-4. `chmod +x wpstatic`
+2. `sudo mkdir /var/www/html/public_static`
+3. Goto local address (http://crow.local/wp-login.php) in your browser then login.
+4. Under "Plugins" add and activate "Staatic" plugin 
 
 ## Set-up GitHub Repo
 1. Sign up for a GitHub account if needed and create a new repository for your website. The Repo must be "Public"
@@ -164,5 +160,11 @@ To get your website up and running, follow the steps in the ordered sections bel
 1. `sudo crontab -e` (you may have you pick a default text editor, I recommend Nano for beginners)
 2. add this line `0 0 * * * /usr/bin/bash /home/crow/thecacklingcrow/update.sh` (this will mean the Raspberry Pi will apply any changes you've made to your site locally to the open web at Midnight every night)
 
+# Use
+After you've followed the [Installation](#installation) instructions, you can access your WordPress website through a browser that's connected to the same network as the Raspberry Pi. You can make any changes to your website you'd like using the regular WordPress interface.
 
-
+## To deploy changes made locally to the web
+1. Goto local address (http://crow.local/wp-login.php) in your browser then login.
+2. Under "Staatic", click "Publications"
+3. Click "Publish now"
+4. Wait 3 to 5 minutes
